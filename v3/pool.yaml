@@ -1,0 +1,29 @@
+POOL:
+  pool_id: 57371
+  status: false # true = on, false = off
+  unit_size: 1
+  fall_ratio: 0.01
+  profit_lock: 0.02
+  profit_share_ratio: 1
+  reward_share_ratio: 0.1
+  max_reward_units: 500
+  spot_price: 311.73
+  pool_dbr: 0.33
+
+LAYER:
+  layers: 2 #L2
+  layer_price:
+    - 318.17
+    - 313.35
+    - 309.04
+  layer_input:
+    - 5
+    - 10
+    - 20
+
+USER:
+  user_input_layer: 0
+  input_quantity: 5
+  input_price: 318.17
+  leverge: 0 #杠杆
+

@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+*.dSYM
+p_pro
+
+build
+cmake-build-debug

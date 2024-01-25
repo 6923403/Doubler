@@ -8,7 +8,7 @@ POOL:
   reward_share_ratio: 0.1
   max_reward_units: 500
   spot_price: 311.73
-  pool_dbr: 0.33
+  pool_dbr: 100
 
 LAYER:
   layers: 2 #L2

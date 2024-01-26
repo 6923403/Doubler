@@ -17,11 +17,12 @@ public:
     void executeStrategy(Pool* p); // 执行策略
     double geUptvl(const double units);
 
+    const double m_user_input_price;
+
 private:
-    int m_user_input_layer;
-    double m_user_input_quantity;
-    double m_user_input_price;
-    int m_leverge;
+    const int m_user_input_layer;
+    const double m_user_input_quantity;
+    const int m_leverge;
 
 private:
     Strategy* strategy;

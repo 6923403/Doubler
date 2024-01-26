@@ -10,7 +10,8 @@ User::User(int user_input_layer, double user_input_quantity, double user_input_p
         m_user_input_layer(user_input_layer), m_user_input_quantity(user_input_quantity), m_user_input_price(user_input_price), m_leverge(leverge), strategy(s)
 
 {
-    std::cout << "m_user_input_layer = " << m_user_input_layer << " \nm_user_input_quantity = " << m_user_input_quantity << " \nm_user_input_price = " << m_user_input_price << " \nm_leverge = " << m_leverge << std::endl;
+    ;
+//    std::cout << "m_user_input_layer = " << m_user_input_layer << " \nm_user_input_quantity = " << m_user_input_quantity << " \nm_user_input_price = " << m_user_input_price << " \nm_leverge = " << m_leverge << std::endl;
 }
 
 void User::executeStrategy(Pool* p)

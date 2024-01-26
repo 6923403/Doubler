@@ -53,7 +53,7 @@ void Pool::ca_layer_dbr() //downtvl/uptvl/dbr
     for (auto it = pool_layer_tvl.begin(); it != pool_layer_tvl.end(); ++it){
         m_uptvl = it->second * (it->first + 1);
         t_layer_dbr = m_pool_dbr * m_uptvl / m_downtvl;
-        std::cout << "layer" << it->first << "_dbr = "  << t_layer_dbr << std::endl;
+        std::cout << "Layer: " << it->first << "，DBR = "  << t_layer_dbr << std::endl;
         layer_dbr.push_back(t_layer_dbr);
     }
 }
@@ -63,8 +63,8 @@ void Pool::ca_pool_esreward()
 {
     double es_r1 = m_profit_price - m_avg_price;
     double es_r2 = es_r1 * (1 - FEE::ECO_FEE);
-    double es_rewards = es_r2 / m_spot_price * m_pool_input_count * m_profit_lock * m_profit_rtatio * m_units;
-    std::cout << "Estimated Rewards: " << es_rewards << std::endl;
+    m_es_reward = es_r2 / m_profit_price * m_pool_input_count * m_profit_rtatio * m_units;
+    std::cout << "Estimated Rewards: " << m_es_reward << std::endl;
 }
 
 void Pool::addUser(User* user){
@@ -76,13 +76,26 @@ void Pool::distribute() {
     for (auto user : m_users) {
         user->executeStrategy(this);
     }
-//    // 输出每个用户的奖励
-//    for (auto user : users) {
-//        cout << user->getName() << " 投入了 " << user->getCoins() << " 个硬币，获得了 " << user->getReward() << " 个奖励" << endl;
-//    }
 }
 
 double Pool::getDowntvl()
 {
     return m_downtvl;
+}
+
+double Pool::getEsreward()
+{
+    return m_es_reward;
+}
+
+double Pool::getLastLayerInput()
+{
+//    pool_layer_input
+    return pool_layer_input.back();
+}
+
+double Pool::getLatestLayerPrice()
+{
+//    pool_layer_price
+    return pool_layer_price.back();
 }

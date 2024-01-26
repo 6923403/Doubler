@@ -28,6 +28,9 @@ public:
     void distribute();
     void ca_pool_esreward();
     double getDowntvl();
+    double getEsreward();
+    double getLastLayerInput();
+    double getLatestLayerPrice();
 
 public:
     const double m_units;
@@ -37,13 +40,13 @@ public:
     double m_pool_tvl = 0;
     double m_es_reward = 0;
     double m_pool_input_count = 0;
+    const double m_re_share_ratio;
+    const double m_max_reward;
 
 private:
     const double m_fall_ratio;
     const double m_profit_lock;
     const double m_profit_rtatio;
-    const double m_re_share_ratio;
-    const double m_max_reward;
 
     const double m_spot_price;
     const int m_pool_layer;

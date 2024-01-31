@@ -34,6 +34,7 @@ struct User_con{
     double input_quantity;
     double input_price;
     int leverge;
+    double gas_usdt;
 };
 }
 OPT::Pool_con pools;
@@ -60,6 +61,7 @@ void config_pool()
         users.input_quantity = config["USER"]["input_quantity"].as<double>();
         users.input_price = config["USER"]["input_price"].as<double>();
         users.leverge = config["USER"]["leverge"].as<double>();
+        users.gas_usdt = config["USER"]["gas_usdt"].as<double>();
         YAML::Node layer_p = config["LAYER"]["layer_price"];
 
         for (int i = 0; i < layer_p.size(); ++i) {

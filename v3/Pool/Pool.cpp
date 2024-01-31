@@ -7,10 +7,10 @@
 #include <vector>
 #include <iostream>
 
-Pool::Pool(double units, double fall_ratio, double profit_lock, double profit_rtatio, double re_share_ratio, double max_reward,
+Pool::Pool(double units, double fall_ratio, double profit_lock, double profit_ratio, double re_share_ratio, double max_reward,
             double  spot_price, double pool_dbr, double pool_layer, bool pool_status,
            const std::vector<double> &layer_input, const std::vector<double> layer_price) :
-     m_units(units), m_fall_ratio(fall_ratio), m_profit_lock(profit_lock), m_profit_rtatio(profit_rtatio), m_re_share_ratio(re_share_ratio), m_max_reward(max_reward),
+     m_units(units), m_fall_ratio(fall_ratio), m_profit_lock(profit_lock), m_profit_ratio(profit_ratio), m_re_share_ratio(re_share_ratio), m_max_reward(max_reward),
      m_spot_price(spot_price), m_pool_dbr(pool_dbr), m_pool_layer(pool_layer), m_pool_status(pool_status), pool_layer_input(layer_input), pool_layer_price(layer_price)
 {
 //    std::cout << " m_units = " << m_units << "\n m_fall_ratio = " << m_fall_ratio << "\n m_profit_lock = " << m_profit_lock << "\n m_profit_rtatio = " << m_profit_rtatio <<
@@ -63,7 +63,7 @@ void Pool::ca_pool_esreward()
 {
     double es_r1 = m_profit_price - m_avg_price;
     double es_r2 = es_r1 * (1 - FEE::ECO_FEE);
-    m_es_reward = es_r2 / m_profit_price * m_pool_input_count * m_profit_rtatio * m_units;
+    m_es_reward = es_r2 / m_profit_price * m_pool_input_count * m_profit_ratio * m_units;
     std::cout << "Estimated Rewards: " << m_es_reward << std::endl;
 }
 
@@ -88,6 +88,16 @@ double Pool::getEsreward()
     return m_es_reward;
 }
 
+double Pool::getFirstLayerPrice()
+{
+    return *pool_layer_price.begin();
+}
+
+double Pool::getFirstLayerInput()
+{
+    return *pool_layer_input.begin();
+}
+
 double Pool::getLastLayerInput()
 {
 //    pool_layer_input
@@ -98,4 +108,9 @@ double Pool::getLatestLayerPrice()
 {
 //    pool_layer_price
     return pool_layer_price.back();
+}
+
+double Pool::getProfitPrice()
+{
+    return m_profit_price;
 }

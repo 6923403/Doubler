@@ -12,7 +12,7 @@ class Pool;
 class Strategy {
 private:
 public:
-    virtual ~Strategy() {} // 虚析构函数
+    virtual ~Strategy() {} 
     virtual void calculateReward(User* u, Pool* p) = 0; //计算DBR
 };
 

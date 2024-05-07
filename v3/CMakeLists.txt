@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(Omniscient) #Omniscient pool
+project(CaDBR) #Omniscient pool
 
 include(FetchContent)
 add_compile_options(-std=c++11 -g)

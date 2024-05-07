@@ -24,8 +24,6 @@ public:
     const double m_user_input_quantity;
 
 private:
-
-private:
     Strategy* strategy;
 
 };
